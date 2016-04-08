@@ -1,0 +1,148 @@
+<li>
+								<!-- pic -->
+								<div class="iuser">
+									<div class="u-img">
+										<img ng-src="{{list[0].profile_image}}">
+									</div>
+									<div class="u-text">
+										<span class="u-name">{{list[0].name}}</span>
+										<span class="c-time pull-right">{{list[0].create_time}}</span>
+									</div>
+								</div>
+								<div class="i-list-c">
+									<div class="t-desc">{{list[0].text}}</div>
+									<div class="i-c-p-img">
+										<img ng-src="{{list[0].image0}}">
+									</div>
+								</div>
+								<div class="i-card-tool">
+									<div class="tool-cell t-id">
+										<span>
+											<i class="fa fa-street-view"></i>&nbsp&nbsp{{list[0].id}}
+										</span>
+									</div>
+									<div class="tool-cell tool-l-h">
+										<span>
+											<i class="fa fa-thumbs-o-up"></i>&nbsp&nbsp{{list[0].love}}
+										</span>
+										<span>
+											<i class="fa fa-thumbs-o-down"></i>&nbsp&nbsp{{list[0].hate}}
+										</span>
+									</div>
+									<div class="tool-cell c-type">
+										<span ng-if="list[0].type == 29">
+											<i class="fa fa-modx"></i>
+											idaodan
+										</span>
+										<span ng-if="list[0].type == 10">
+											<i class="fa fa-ils"></i>
+											pdaodan
+										</span>
+										<span ng-if="list[0].type == 41">
+											<i class="fa fa-video-camera"></i>
+											vdaodan
+										</span>
+
+									</div>
+								</div>
+							</li>
+							<li>
+								<!-- text -->
+								<div class="iuser">
+									<div class="u-img">
+										<img ng-src="{{list[2].profile_image}}">
+									</div>
+									<div class="u-text">
+										<span class="u-name">{{list[2].name}}</span>
+										<span class="c-time pull-right">{{list[2].create_time}}</span>
+									</div>
+								</div>
+								<div class="i-list-c">
+									<div class="t-desc">{{list[2].text}}</div>
+									<div class="i-c-p-img">
+										<img ng-src="{{list[2].image0}}" ng-if="list[2].type==10">
+									</div>
+								</div>
+								<div class="i-card-tool">
+									<div class="tool-cell t-id">
+										<span>
+											<i class="fa fa-street-view"></i>&nbsp&nbsp{{list[2].id}}
+										</span>
+									</div>
+									<div class="tool-cell tool-l-h">
+										<span>
+											<i class="fa fa-thumbs-o-up"></i>&nbsp&nbsp{{list[2].love}}
+										</span>
+										<span>
+											<i class="fa fa-thumbs-o-down"></i>&nbsp&nbsp{{list[2].hate}}
+										</span>
+									</div>
+									<div class="tool-cell c-type">
+										<span ng-if="list[2].type == 29">
+											<i class="fa fa-modx"></i>
+											idaodan
+										</span>
+										<span ng-if="list[2].type == 10">
+											<i class="fa fa-ils"></i>
+											pdaodan
+										</span>
+										<span ng-if="list[2].type == 41">
+											<i class="fa fa-video-camera"></i>
+											vdaodan
+										</span>
+
+									</div>
+								</div>
+							</li>
+							<li>
+								<!-- video -->
+								<div class="iuser">
+									<div class="u-img">
+										<img ng-src="{{list[1].profile_image}}">
+									</div>
+									<div class="u-text">
+										<span class="u-name">{{list[1].name}}</span>
+										<span class="c-time pull-right">{{list[1].create_time}}</span>
+									</div>
+								</div>
+								<div class="i-list-c">
+									<div class="t-desc">{{list[1].text}}</div>
+									<div class="i-c-p-img" ng-if="list[1].type == 10">
+										<img ng-src="{{list[1].image0}}">
+									</div>
+									<div class="i-video-c" ng-if="list[1].type == 41">
+										<video ng-src="{{trustSrc(list[1].video_uri)}}" preload="none" poster="/images/preload.jpg" controls="controls"></video>
+										{{list[1].video_uri}}
+									</div>
+								</div>
+								<div class="i-card-tool">
+									<div class="tool-cell t-id">
+										<span>
+											<i class="fa fa-street-view"></i>&nbsp&nbsp{{list[1].id}}
+										</span>
+									</div>
+									<div class="tool-cell tool-l-h">
+										<span>
+											<i class="fa fa-thumbs-o-up"></i>&nbsp&nbsp{{list[1].love}}
+										</span>
+										<span>
+											<i class="fa fa-thumbs-o-down"></i>&nbsp&nbsp{{list[1].hate}}
+										</span>
+									</div>
+									<div class="tool-cell c-type">
+										<span ng-if="list[1].type == 29">
+											<i class="fa fa-modx"></i>
+											idaodan
+										</span>
+										<span ng-if="list[1].type == 10">
+											<i class="fa fa-ils"></i>
+											pdaodan
+										</span>
+										<span ng-if="list[1].type == 41">
+											<i class="fa fa-video-camera"></i>
+											vdaodan
+										</span>
+
+									</div>
+								</div>
+								</li>

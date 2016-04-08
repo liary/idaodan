@@ -1,0 +1,6 @@
+node_modules
+npm-debug.log
+views/test/*
+views/pre-release/*
+views/production/*
+.project

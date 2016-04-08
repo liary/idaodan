@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<meta name="renderer" content="webkit" />
+	<meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1" />
+	<title>- 爱捣蛋</title>
+	<!-- {{{ block('beforeHeadEnd') }}} -->
+	<!-- <link rel="stylesheet" href="../public/style/bootstrap.min.css">
+	<link rel="stylesheet" href="../public/style/font-awesome.min.css">
+	<link rel="stylesheet" href="../public/style/ido.css"> -->
+	<link rel="stylesheet" href="./style/bootstrap.min.css">
+	<link rel="stylesheet" href="./style/font-awesome.min.css">
+	<link rel="stylesheet" href="./style/ido.css">
+</head>
+
+<body ng-app="idaodan">
+	<!-- tab-bar -->
+	<div class="header">
+		<div class="itop wrapper">
+			<div class="logo">
+				<img src="./images/logo.png" alt="">
+			</div>
+		</div>
+		<div class="nav-bar">
+			<ul class="inav wrapper clearfix">
+				<li class="active">
+					<a href="javascript:;">
+						<i class="fa fa-reddit-alien"></i>
+						首页
+					</a>
+				</li>
+				<li>
+					<a href="javascript:;">
+						<i class="fa fa-bed"></i>
+						原创笑图
+					</a>
+				</li>
+				<li>
+					<a href="javascript:;">
+						<i class="fa fa-reddit-alien"></i>
+						视频专区
+					</a>
+				</li>
+				<li>
+					<a href="javascript:;">
+						<i class="fa fa-reddit-alien"></i>
+						大杂烩
+					</a>
+				</li>
+				<li class="pull-right">
+					<a href="javascript:;">
+						<i class="fa fa-reddit-alien"></i>
+						关于开发者
+					</a>
+				</li>
+			</ul>
+		</div>
+	</div>
+	
+
+	<div class="main" ng-controller="idaodanCtrl">
+
+		<div class="icontent wrapper">
+
+			<div class="mn clearfix">
+				<div class="rowd">
+					<div class="del-col-xs-12 no-border">
+						<div class="itable-header" style="color:#e50541;">
+							<a href="javascript:;" ng-if="!searchParam">
+								<i class="fa fa-fire"></i>&nbsp&nbsp热门推荐
+							</a>
+							<a href="javascript:;" ng-if="searchParam">
+								<i class="fa fa-fire"></i>&nbsp&nbsp{{"搜索："+searchParam+"结果"}}
+							</a>
+						</div>
+						<hr class="ihr">
+							
+						<ul class="ilist">
+								
+								<li ng-repeat="obj in ilists">
+									<div class="iuser">
+										<div class="u-img">
+											<img ng-src="{{obj.profile_image}}">
+										</div>
+										<div class="u-text">
+											<span class="u-name">{{obj.name}}</span>
+											<span class="c-time pull-right">{{obj.create_time}}</span>
+										</div>
+									</div>
+									<div class="i-list-c">
+										<div class="t-desc">{{obj.text}}</div>
+										<div class="i-c-p-img" ng-if="obj.type == 10">
+											<img ng-src="{{obj.image1}}">
+										</div>
+										<div class="i-video-c" ng-if="obj.type == 41">
+											<video ng-src="{{trustSrc(obj.video_uri)}}" preload="none" poster="/images/preload.jpg" controls="controls"></video>
+										</div>
+									</div>
+									<div class="i-card-tool">
+										<div class="tool-cell t-id">
+											<span>
+												<i class="fa fa-street-view"></i>&nbsp&nbsp{{obj.id}}
+											</span>
+										</div>
+										<div class="tool-cell tool-l-h">
+											<span>
+												<i class="fa fa-thumbs-o-up"></i>&nbsp&nbsp{{obj.love}}
+											</span>
+											<span>
+												<i class="fa fa-thumbs-o-down"></i>&nbsp&nbsp{{obj.hate}}
+											</span>
+										</div>
+										<div class="tool-cell c-type">
+											<span ng-if="obj.type == 29">
+												<i class="fa fa-modx"></i>
+												idaodan
+											</span>
+											<span ng-if="obj.type == 10">
+												<i class="fa fa-ils"></i>
+												pdaodan
+											</span>
+											<span ng-if="obj.type == 41">
+												<i class="fa fa-video-camera"></i>
+												vdaodan
+											</span>
+
+										</div>
+									</div>
+								</li>
+						</ul>
+						</div>
+					</div>
+				</div>
+				<div class="r-nav">
+					<div class="r-recommend clearfix">
+						
+						<h3>站长热推</h3>
+						<ul class="my-rec">
+							<li ng-repeat="list in reclist">
+								<dl class="rc-card">
+									<dt></dt>
+									<dd>
+										<img ng-src="{{list.img}}" alt="">
+									</dd>
+									<dd class='b-gray'>{{list.title}}</dd>
+								</dl>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		<div class="clearfix"></div>
+				<div class="i-size-tool">
+					<ul class="stool">
+						<li><a href="javascript:;" ng-click="gotop()"><i class="fa fa-arrow-up"></i></a></li>
+						<li>
+							<a href="javascript:;" class="i-sr"><i class="fa fa-search" ng-click="sShow()"></i></a>
+							<span ng-if="isShow === 1">
+								<input type="text" class="isearch" ng-model="sparam" >
+								<i class="fa fa-close i-s-close" ng-click="sHide()"></i>
+								<i class="fa fa-search i-s-search" ng-click="search()"></i>
+							</span>
+						</li>
+						<li><a href="/i"><i class="fa fa-home"></i></a></li>
+					</ul>	
+				</div>
+			<div class="f-c">
+				<div class="ipage text-center">
+					<span class="pre"><i class="fa fa-backward" ng-click="prePage()"></i></span>
+					<!-- <span ng-if="page" class="pre disable"><i class="fa fa-backward"></i></span> -->
+					<span class="tip" style="left: 20px">第</span>
+					<input type="text" ng-model="page" placeholder="请输入">
+					<!-- <span ng-if="page" class="next disable" disabled="disabled"><i class="fa fa-forward"></i></span> -->
+					<span class="next" ng-click="nextPage()"><i class="fa fa-forward"></i></span>
+					<span class="tip" style="right: 35px">页</span>
+					<i class="fa fa-paper-plane" ng-click="pageTo()"></i>
+				</div>
+			</div>
+			
+		</div>
+		<div class="clearfix"></div>
+
+		<div class="footer">
+			<div class="footer__inner">
+				<div class="boundary clearfix">
+					<div class="footer_left">
+						<div class="footer_logo">
+							<a href="javascript:;">
+								<img src="./images/footer_logo.png" alt="爱捣蛋">
+							</a>
+						</div>
+						<div class="footer_nav">
+							<a href="/download">回到首页</a><span class="footer_sep">|</span><a href="/about">关于爱捣蛋</a><span class="footer_sep">|</span><a href="javascript:;">友情链接</a>
+						</div>
+						<div class="footer_copyright">2016 © 版权所有归站长@limama&nbsp;&nbsp;&nbsp;&nbsp;<a href="#">www.idaodan.com</a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="javascript:;">学号12251101216</a></div>
+					</div>
+					<ul class="footer_left fr_link">
+						<li><a href="#">游戏网</a></li>
+						<li><a href="#">游戏网</a></li>
+						<li><a href="#">游戏网</a></li>
+						<li><a href="#">游戏网</a></li>
+						<li><a href="#">游戏网</a></li>
+						<li><a href="#">游戏网</a></li>
+						<li><a href="#">游戏网</a></li>
+						<li><a href="#">游戏网</a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+
+
+	<script src="./js/libs/jquery-1.10.2.min.js"></script>
+	<script src="./js/libs/comb_libs_min.js"></script>
+	<script src="./js/plugins/jquery.dataTables.min.js"></script>
+	<script src="./js/plugins/bootstrap.min.js"></script>
+	<script src="./js/idaodanManage.js"></script>
+</body>
+</html>
+
