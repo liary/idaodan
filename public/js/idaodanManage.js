@@ -45,27 +45,22 @@
 					"width": "0"
 				}];
 		
-		
+		$(".inav li").eq(0).addClass('active');
 		$.ajax({
 		    type: 'post',
 		    url: 'https://route.showapi.com/255-1',
 		    dataType: 'jsonp',
 		    data: {
 		        // "showapi_timestamp": formatterDateTime(),
-		         "showapi_appid": '17155', //这里需要改成自己的appid
-		         "showapi_sign": '9471c0d3cddd4f55b6765e5f6d904135'  //这里需要改成自己的应用的密钥secret，
+		         "showapi_appid": '17155', 
+		         "showapi_sign": '9471c0d3cddd4f55b6765e5f6d904135',  
 		 		
 		    },
-		    jsonp: 'jsonpcallback', //这个方法名很重要,不能改变
+		    jsonp: 'jsonpcallback', 
 		    error: function(XmlHttpRequest, textStatus, errorThrown) {
 		        alert("操作失败!");
 		    },
 		    success: function(result) {
-		        // $scope.ilists = result.showapi_res_body.pagebean.contentlist;
-		        // console.log("begin")
-		        // console.log($scope.ilists)
-		        // $compile($(".ilist"))($scope);
-		        // console.log($scope)
 		        $timeout(function() {
 				  $scope.ilists = result.showapi_res_body.pagebean.contentlist;
 				  console.log($scope.ilists)
@@ -254,48 +249,8 @@
 	idaodan.controller("idaodanCtrl",function($scope,$http,$compile,$location,$sce,$timeout){
 		
 		$scope.page = 0;
-
-		$scope.ilists = [
-				{
-					"create_time": "2016-04-08 13:32:02",
-					"hate": "358",
-					"height": "0",
-					"id": "17949882",
-					"love": "685",
-					"name": "陈莴笋",
-					"profile_image": "http://mpic.spriteapp.cn/profile/large/2016/03/02/56d6aa8c693f3_mini.jpg",
-					"text": "\n        女生为什么要污？\n    ",
-					"type": "41",
-					"video_uri": "http://mvideo.spriteapp.cn/video/2016/0407/5705dbfdeb477_wpd.mp4",
-					"videotime": "0",
-					"voicelength": "0",
-					"voicetime": "0",
-					"voiceuri": "",
-					"weixin_url": "http://m.budejie.com/detail-17949882.html/",
-					"width": "0"
-				},
-				{
-					"create_time": "2016-04-08 13:26:01",
-					"hate": "96",
-					"height": "0",
-					"id": "17963504",
-					"image0": "http://mpic.spriteapp.cn/x/640x400/ugc/2016/04/08/57071bdfb062b.jpg",
-					"image1": "http://mpic.spriteapp.cn/x/640x400/ugc/2016/04/08/57071bdfb062b.jpg",
-					"image2": "http://mpic.spriteapp.cn/x/640x400/ugc/2016/04/08/57071bdfb062b.jpg",
-					"image3": "http://mpic.spriteapp.cn/x/640x400/ugc/2016/04/08/57071bdfb062b.jpg",
-					"love": "534",
-					"name": "啊上上上上上帝",
-					"profile_image": "http://mpic.spriteapp.cn/profile/large/2016/03/23/56f236b30bf65_mini.jpg",
-					"text": "\n        你们的老公，拿着不谢\n    ",
-					"type": "10",
-					"videotime": "0",
-					"voicetime": "0",
-					"voiceuri": "",
-					"weixin_url": "http://m.budejie.com/detail-17963504.html/",
-					"width": "0"
-				}];
 		
-		
+		console.log($scope)
 		$.ajax({
 		    type: 'post',
 		    url: 'https://route.showapi.com/255-1',
@@ -317,6 +272,8 @@
 				});
 		    }
 		});
+		
+		$(".inav li").eq(3).addClass('active');
 		$scope.pageTo = function() {
 			if (!$scope.page) {$scope.page = 0};
 			$.ajax({
@@ -385,13 +342,12 @@
 			    url: 'https://route.showapi.com/255-1',
 			    dataType: 'jsonp',
 			    data: {
-			        // "showapi_timestamp": formatterDateTime(),
-			         "showapi_appid": '17155', //这里需要改成自己的appid
-			         "showapi_sign": '9471c0d3cddd4f55b6765e5f6d904135',  //这里需要改成自己的应用的密钥secret，
+			         "showapi_appid": '17155', 
+			         "showapi_sign": '9471c0d3cddd4f55b6765e5f6d904135',  
 			 		 "page": $scope.page,
 			 		 "type": 29
 			    },
-			    jsonp: 'jsonpcallback', //这个方法名很重要,不能改变
+			    jsonp: 'jsonpcallback', 
 			    error: function(XmlHttpRequest, textStatus, errorThrown) {
 			        alert("操作失败!");
 			    },
@@ -438,21 +394,18 @@
 			    url: 'https://route.showapi.com/255-1',
 			    dataType: 'jsonp',
 			    data: {
-			        // "showapi_timestamp": formatterDateTime(),
-			         "showapi_appid": '17155', //这里需要改成自己的appid
-			         "showapi_sign": '9471c0d3cddd4f55b6765e5f6d904135',  //这里需要改成自己的应用的密钥secret，
+			         "showapi_appid": '17155', 
+			         "showapi_sign": '9471c0d3cddd4f55b6765e5f6d904135',  
 			 		 "title": searchParam,
 			 		 "type": 29
 			    },
-			    jsonp: 'jsonpcallback', //这个方法名很重要,不能改变
+			    jsonp: 'jsonpcallback', 
 			    error: function(XmlHttpRequest, textStatus, errorThrown) {
 			        alert("操作失败!");
 			    },
 			    success: function(result) {
-			        // $scope.ilists = result.showapi_res_body.pagebean.contentlist;
 			        $scope.ilists = []
 			        var nd = $(".ilist");
-			        // $compile(nd)($scope)
 			        $timeout(function() {
 			        console.log("search")
 					  console.log($scope.ilists)
@@ -501,28 +454,23 @@
 	});
 
 	idaodan.controller("pdaodanCtrl",function($scope,$http,$compile,$location,$sce,$timeout){
-		
+
+		$(".inav li").eq(1).addClass('active');
 		$scope.page = 0;
 		$.ajax({
 		    type: 'post',
 		    url: 'https://route.showapi.com/255-1',
 		    dataType: 'jsonp',
 		    data: {
-		        // "showapi_timestamp": formatterDateTime(),
-		         "showapi_appid": '17155', //这里需要改成自己的appid
-		         "showapi_sign": '9471c0d3cddd4f55b6765e5f6d904135',  //这里需要改成自己的应用的密钥secret，
-		 		 "type": 10
+		         "showapi_appid": '17155', 
+		         "showapi_sign": '9471c0d3cddd4f55b6765e5f6d904135', 
+		 		 "type": '10'
 		    },
-		    jsonp: 'jsonpcallback', //这个方法名很重要,不能改变
+		    jsonp: 'jsonpcallback', 
 		    error: function(XmlHttpRequest, textStatus, errorThrown) {
 		        alert("操作失败!");
 		    },
 		    success: function(result) {
-		        // $scope.ilists = result.showapi_res_body.pagebean.contentlist;
-		        // console.log("begin")
-		        // console.log($scope.ilists)
-		        // $compile($(".ilist"))($scope);
-		        // console.log($scope)
 		        $timeout(function() {
 				  $scope.ilists = result.showapi_res_body.pagebean.contentlist;
 				  console.log($scope.ilists)
@@ -712,9 +660,10 @@
 		}
 	});
 
-	idaodan.controller("pdaodanCtrl",function($scope,$http,$compile,$location,$sce,$timeout){
+	idaodan.controller("vdaodanCtrl",function($scope,$http,$compile,$location,$sce,$timeout){
 		
 		$scope.page = 0;
+		$(".inav li").eq(2).addClass('active');
 		$.ajax({
 		    type: 'post',
 		    url: 'https://route.showapi.com/255-1',

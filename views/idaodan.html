@@ -1,63 +1,5 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<meta charset="utf-8" />
-	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-	<meta name="renderer" content="webkit" />
-	<meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1" />
-	<title>- 爱捣蛋</title>
-	<!-- {{{ block('beforeHeadEnd') }}} -->
-	<!-- <link rel="stylesheet" href="../public/style/bootstrap.min.css">
-	<link rel="stylesheet" href="../public/style/font-awesome.min.css">
-	<link rel="stylesheet" href="../public/style/ido.css"> -->
-	<link rel="stylesheet" href="./style/bootstrap.min.css">
-	<link rel="stylesheet" href="./style/font-awesome.min.css">
-	<link rel="stylesheet" href="./style/ido.css">
-</head>
+<% include head.html %>
 
-<body ng-app="idaodan">
-	<!-- tab-bar -->
-	<div class="header">
-		<div class="itop wrapper">
-			<div class="logo">
-				<img src="./images/logo.png" alt="">
-			</div>
-		</div>
-		<div class="nav-bar">
-			<ul class="inav wrapper clearfix">
-				<li class="active">
-					<a href="javascript:;">
-						<i class="fa fa-reddit-alien"></i>
-						首页
-					</a>
-				</li>
-				<li>
-					<a href="javascript:;">
-						<i class="fa fa-bed"></i>
-						原创笑图
-					</a>
-				</li>
-				<li>
-					<a href="javascript:;">
-						<i class="fa fa-reddit-alien"></i>
-						视频专区
-					</a>
-				</li>
-				<li>
-					<a href="javascript:;">
-						<i class="fa fa-reddit-alien"></i>
-						大杂烩
-					</a>
-				</li>
-				<li class="pull-right">
-					<a href="javascript:;">
-						<i class="fa fa-reddit-alien"></i>
-						关于开发者
-					</a>
-				</li>
-			</ul>
-		</div>
-	</div>
 	
 
 	<div class="main" ng-controller="idaodanCtrl">
@@ -69,7 +11,7 @@
 					<div class="del-col-xs-12 no-border">
 						<div class="itable-header" style="color:#e50541;">
 							<a href="javascript:;" ng-if="!searchParam">
-								<i class="fa fa-fire"></i>&nbsp&nbsp热门推荐
+								<i class="fa fa-fire"></i>&nbsp&nbsp语不惊人死不休
 							</a>
 							<a href="javascript:;" ng-if="searchParam">
 								<i class="fa fa-fire"></i>&nbsp&nbsp{{"搜索："+searchParam+"结果"}}
@@ -137,7 +79,7 @@
 					<div class="r-recommend clearfix">
 						
 						<h3>站长热推</h3>
-						<ul class="my-rec">
+						<ul class="my-rect">
 							<li ng-repeat="list in reclist">
 								<dl class="rc-card">
 									<dt></dt>
@@ -181,41 +123,4 @@
 			
 		</div>
 		<div class="clearfix"></div>
-
-		<div class="footer">
-			<div class="footer__inner">
-				<div class="boundary clearfix">
-					<div class="footer_left">
-						<div class="footer_logo">
-							<a href="javascript:;">
-								<img src="./images/footer_logo.png" alt="爱捣蛋">
-							</a>
-						</div>
-						<div class="footer_nav">
-							<a href="/download">回到首页</a><span class="footer_sep">|</span><a href="/about">关于爱捣蛋</a><span class="footer_sep">|</span><a href="javascript:;">友情链接</a>
-						</div>
-						<div class="footer_copyright">2016 © 版权所有归站长@limama&nbsp;&nbsp;&nbsp;&nbsp;<a href="#">www.idaodan.com</a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="javascript:;">学号12251101216</a></div>
-					</div>
-					<ul class="footer_left fr_link">
-						<li><a href="#">游戏网</a></li>
-						<li><a href="#">游戏网</a></li>
-						<li><a href="#">游戏网</a></li>
-						<li><a href="#">游戏网</a></li>
-						<li><a href="#">游戏网</a></li>
-						<li><a href="#">游戏网</a></li>
-						<li><a href="#">游戏网</a></li>
-						<li><a href="#">游戏网</a></li>
-					</ul>
-				</div>
-			</div>
-		</div>
-
-
-	<script src="./js/libs/jquery-1.10.2.min.js"></script>
-	<script src="./js/libs/comb_libs_min.js"></script>
-	<script src="./js/plugins/jquery.dataTables.min.js"></script>
-	<script src="./js/plugins/bootstrap.min.js"></script>
-	<script src="./js/idaodanManage.js"></script>
-</body>
-</html>
-
+		<% include footer.html %>

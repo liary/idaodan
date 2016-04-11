@@ -1,16 +1,61 @@
-</html>
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<meta name="renderer" content="webkit" />
-<meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1" />
-<title><%= title%> - 爱捣蛋</title>
-<!-- {{{ block('beforeHeadEnd') }}} -->
-<% include beforeHeadEnd.html %>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<meta name="renderer" content="webkit" />
+	<meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1" />
+	<title>- 爱捣蛋</title>
+	<!-- {{{ block('beforeHeadEnd') }}} -->
+	<!-- <link rel="stylesheet" href="../public/style/bootstrap.min.css">
+	<link rel="stylesheet" href="../public/style/font-awesome.min.css">
+	<link rel="stylesheet" href="../public/style/ido.css"> -->
+	<link rel="stylesheet" href="./style/bootstrap.min.css">
+	<link rel="stylesheet" href="./style/font-awesome.min.css">
+	<link rel="stylesheet" href="./style/ido.css">
 </head>
-
-<body ng-app="{{{ block('body-ng-app') }}}">
-<!-- {{{ block('inBody') }}} -->
 	
+
+<body ng-app="idaodan">
+	<!-- tab-bar -->
+	<div class="header">
+		<div class="itop wrapper">
+			<div class="logo">
+				<img src="./images/logo.png" alt="logo">
+			</div>
+		</div>
+		<div class="nav-bar">
+			<ul class="inav wrapper clearfix">
+				<li>
+					<a href="/">
+						<i class="fa fa-home"></i>
+						首页
+					</a>
+				</li>
+				<li>
+					<a href="/pdaodan">
+						<i class="fa fa-bed"></i>
+						原创笑图
+					</a>
+				</li>
+				<li>
+					<a href="/vdaodan">
+						<i class="fa fa-video-camera"></i>
+						视频专区
+					</a>
+				</li>
+				<li>
+					<a href="/idaodan">
+						<i class="fa fa-text-width"></i>
+						大杂烩
+					</a>
+				</li>
+				<li class="pull-right">
+					<a href="javascript:;">
+						<i class="fa fa-reddit-alien"></i>
+						关于开发者
+					</a>
+				</li>
+			</ul>
+		</div>
+	</div>

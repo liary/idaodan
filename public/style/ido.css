@@ -46,20 +46,19 @@ input:focus {
 }
 
 .inav .active {
-	background-color: #32C24D;
+	background-color: #333;
 }
 
 .inav li {
 	float: left;
 	padding: 0 5px;
-	border-right: 1px solid #f80;
 	/*border-left: 1px solid #f80;*/
     position: relative;
     z-index: 100;
 }
 
 .inav li:hover {
-	background-color: #32C24D;
+	background-color: #151;
 }
 .inav li:hover i {
 	animation: 0.5s shake infinite;
@@ -270,7 +269,7 @@ input:focus {
 }
 
 .r-recommend {
-	padding: 0 20px 0 20px;
+	padding: 0 20px 30px 20px;
 	width: 280px;
 	background-color: #fff;
 }
@@ -281,8 +280,8 @@ input:focus {
 }
 
 .my-rec {
-	max-height: 900px;
-	overflow: auto;
+	min-height: 900px;
+	position: relative;
 }
 
 .rc-card {

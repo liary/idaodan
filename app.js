@@ -37,8 +37,6 @@ var ejs =  require('ejs');
  
  /// error handlers
  
- // development error handler
- // will print stacktrace
  if (app.get('env') === 'development') {
  	app.use(function(err, req, res, next) {
  		res.status(err.status || 500);
@@ -49,8 +47,6 @@ var ejs =  require('ejs');
  	});
  }
  
- // production error handler
- // no stacktraces leaked to user
  app.use(function(err, req, res, next) {
  	res.status(err.status || 500);
  	res.render('error', {
